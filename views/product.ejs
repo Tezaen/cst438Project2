@@ -1,0 +1,23 @@
+<%- include ('templates/header'); -%>
+        <div class='container'>
+            <div class='jumbotron'>
+                <h3> Chees O </h3>
+                <a class='btn btn-primary' href='/home'>Home</a>
+            </div>
+            <div class='row'>
+                <%if(!author){%>
+                    <h1 class='col-sm-12 nofound'>CANNOT FIND YOUR AUTHOR!!!</h1>    
+                <%}
+                else{%>
+                    <img class='col-sm-4 portrait' src=<%=cheese.image%> />
+                    <div class='col-sm-4 info'>
+                      <h3><%=cheese.cheeseName%> </h3>
+                      <div>Category: <%=cheese.category%></div>
+                      <div>Cost: <%=cheese.cost%></div>
+                      <div>Left in Stock: <%=cheese.invnum%></div>
+                      <div class='bio'><%=cheese.description%></div>
+                    </div>
+                <%}%>
+            </div>
+        </div>
+<%- include ('templates/footer'); -%>

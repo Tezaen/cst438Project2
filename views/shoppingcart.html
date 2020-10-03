@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cheeso</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" ></script> 
+	<link rel='stylesheet' type='text/css' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+	<link rel='stylesheet' type='text/css' href='css/app.css'>
+	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+	
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      
+  </head>
+    <body>
+    <h1 class="jumbotron"> <span class="glyphicon glyphicon-shopping-cart"></span> Shooping Cart </h1>
+    <div class="shopping-cart">
+     
+    <!--Product 1-->
+    <figure>
+      <img class="imgProduct" src="href='/author/<%=chesse.image%>/chesse'>" alt="" />
+    </figure>
+    <div class="products">
+      <div>Product1</div>
+      Price per unit: <div class="price">1.39</div>
+      <div class="quantity">
+        <input type="number" value="1" min="1">
+      </div>
+    Total per units: <div class="updatedPrice">1.39</div>
+    </div>
+    <br></br>
+    
+    <!--Product 2-->
+    <!--<figure>-->
+    <!--  <img class="imgProduct" src="img/tortillas_pack.jpeg" alt="Tortillas" />-->
+    <!--</figure>-->
+    <!--<div class="products">-->
+    <!--  <div>Product2</div>-->
+    <!--  Price per unit: <div class="price">2.69</div>-->
+    <!--  <div class="quantity">-->
+    <!--  <input type="number" value="1" min="1">-->
+    <!--</div>-->
+    <!--Total per units: <div class="updatedPrice">2.69</div>-->
+    <!--  </div>-->
+    
+    <!--Totals-->
+    <h3 class="results">Subtotal:</h3>
+    <div class="totals" id="updatedSubtotal">4.08</div>
+ 
+    <h3 class="results">Taxes 9.25%:</h3>
+    <div class="totals" id="updatedTax">0.38</div>
+  
+    <h3 class="results">Total:</h3>
+    <div class="totals" id="updatedTotal">4.46</div>
+
+    <button class="checkout">Checkout</button><br></br>
+
+    <!--Access to functions-->
+    <script src="app.js"></script>
+    </body>
+</html>
