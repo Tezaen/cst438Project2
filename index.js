@@ -18,10 +18,10 @@ app.use(session({
 app.set('view engine', 'ejs');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'mytzy',
-    password: 'mytzy',
-    database: 'cheese'
+    host: process.env.HOST,
+    user: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
 });
 connection.connect(); // What is this?
 

@@ -1,0 +1,10 @@
+mysql://ryllpawi3y6m12a6:v1zug5t3jn8ydmhl@kf3k4aywsrp0d2is.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/j9086vzm9uzlt5mv
+
+username = ryllpawi3y6m12a6
+password = v1zug5t3jn8ydmhl
+
+host = kf3k4aywsrp0d2is.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
+
+port = 3306
+
+database = j9086vzm9uzlt5mv
