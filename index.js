@@ -23,6 +23,12 @@ const connection = mysql.createConnection({
     password: process.env.PASSWORD,
     database: process.env.DATABASE
 });
+// const connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'mytzy',
+//     password: 'mytzy',
+//     database: 'cheese'
+// });
 connection.connect(); // What is this?
 
 // Middleware 
@@ -122,15 +128,26 @@ app.get('/register', function(req, res){
 /* Register Post Method */
 app.post('/register', function(req, res){
     let salt = 10;
-    bcrypt.hash(req.body.password, salt, function(error, hash){
-        if(error) throw error;
-        let stmt = 'INSERT INTO users (username, password) VALUES (?, ?)';
-        let data = [req.body.username, hash];
-        connection.query(stmt, data, function(error, result){
-           if(error) throw error;
-           res.redirect('/login');
-        });
+    let searchedName = '';
+    let searchStmt = 'SELECT username FROM users WHERE username = ' + req.body.username + ';';
+    connection.query(searchStmt, function(error, result1) {
+       if(error) throw error;
+       searchedName = result1[0];
     });
+    
+    if(searchedName != '') {
+        bcrypt.hash(req.body.password, salt, function(error, hash){
+            if(error) throw error;
+            let stmt = 'INSERT INTO users (username, password) VALUES (?, ?)';
+            let data = [req.body.username, hash];
+            connection.query(stmt, data, function(error, result){
+               if(error) throw error;
+               res.redirect('/login');
+            });
+        });
+    } else {
+        //do a text highlight or whatever saying that username is taken
+    }
 });
 
 app.get('/cart', isAuthenticated, function(req, res) {
