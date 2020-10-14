@@ -9,6 +9,16 @@
     </div>
     
     <div class='container'>
-        
+        <div class='row'>
+            <%cheeseList.forEach(function(c) { %>
+                <div class='col-md-4'>
+                    <img class="cheeseImage"src=<%= c.image%>> <br>
+                    <div class='container'>
+                        <h5 class="cname"> <%= c.cheeseName %> </h5>
+                        <p class="ccategory"><%= c.category %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
     </div>
 <%- include ('templates/footer'); -%>

@@ -5,6 +5,8 @@ var mysql = require('mysql');
 var session = require('express-session');
 var bcrypt = require('bcrypt');
 var app = express();
+//var jsdom = require('jsdom');
+//var $ = require("jquery")(new jsdom.JSDOM().window);
 
 app.use(express.static('css'));
 app.use(express.static('public'));
@@ -17,19 +19,20 @@ app.use(session({
 }));
 app.set('view engine', 'ejs');
 
-const connection = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USERNAME,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
-});
 // const connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'mytzy',
-//     password: 'mytzy',
-//     database: 'cheese'
+//     host: process.env.HOST,
+//     user: process.env.USERNAME,
+//     password: process.env.PASSWORD,
+//     database: process.env.DATABASE
 // });
-connection.connect(); // What is this?
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'mytzy',
+    password: 'mytzy',
+    database: 'cheese'
+});
+//connection.connect(); // This is for JAawsDB
 
 // Middleware 
 function isAuthenticated(req, res, next){
@@ -58,32 +61,18 @@ function checkPassword(password, hash){
     });
 }
 
-//add check username
-function checkUsername(username){
-    let stmt = 'SELECT * FROM users WHERE username=?';
-    return new Promise(function(resolve, reject){
-       connection.query(stmt, [username], function(error, results){
-           if(error) throw error;
-           resolve(results);
-       }); 
+app.get('/inventory', function(req, res) {
+    var statement = 'SELECT * FROM totalCheeses;';
+    connection.query(statement, function(error, result) {
+        if(error) throw error;
+        //console.log(result);
+        let resCheese = result;
+        console.log(resCheese);
+        res.render('listOfProducts', {cheeseList: resCheese}); //
     });
-}
-
-//add check password
-function checkPassword(password, hash){
-    return new Promise(function(resolve, reject){
-       bcrypt.compare(password, hash, function(error, result){
-          if(error) throw error;
-          resolve(result);
-       }); 
-    });
-}
-
-app.get('/inventory/', function(req, res) {
-    res.render('listOfProducts');
 });
 
-app.get('/inventory/:cid', isAuthenticated, function(req, res){
+app.get('/inventory/:cid', function(req, res){
     var stmt = 'SELECT * FROM totalCheeses WHERE cheeseId=' + req.params.cid + ';';
     console.log(stmt);
     connection.query(stmt, function(error, results){
@@ -113,7 +102,7 @@ app.post('/login', async function(req, res){
     if(passwordMatch){
         req.session.authenticated = true;
         req.session.user = isUserExist[0].username;
-        res.redirect('/inventory/');
+        res.redirect('/inventory');
     }
     else{
         res.render('login', {error: true});
@@ -126,32 +115,21 @@ app.get('/register', function(req, res){
 });
 
 /* Register Post Method */
-app.post('/register', function(req, res){
+app.post('/register', async function(req, res){
     let salt = 10;
-    let searchedName = '';
-    let searchStmt = 'SELECT username FROM users WHERE username = ' + req.body.username + ';';
-    connection.query(searchStmt, function(error, result1) {
-       if(error) throw error;
-       searchedName = result1[0];
-    });
-    
-    if(searchedName != '') {
-        bcrypt.hash(req.body.password, salt, function(error, hash){
-            if(error) throw error;
-            let stmt = 'INSERT INTO users (username, password) VALUES (?, ?)';
-            let data = [req.body.username, hash];
-            connection.query(stmt, data, function(error, result){
-               if(error) throw error;
-               res.redirect('/login');
-            });
+    bcrypt.hash(req.body.password, salt, function(error, hash){
+        if(error) throw error;
+        let stmt = 'INSERT INTO users (username, password) VALUES (?, ?)';
+        let data = [req.body.username, hash];
+        connection.query(stmt, data, function(error, result){
+           if(error) throw error;
+           res.redirect('/login');
         });
-    } else {
-        //do a text highlight or whatever saying that username is taken
-    }
+    });
 });
 
 app.get('/cart', isAuthenticated, function(req, res) {
-     
+    res.render('shoppingcart');
 });
 
 /* Logout Route */

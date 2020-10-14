@@ -9,7 +9,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
 	`userId` mediumint(9) NOT NULL,
-	`username` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+	`username` varchar(10) COLLATE utf8_unicode_ci NOT NULL UNIQUE,
 	`password` varchar(500) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -37,7 +37,6 @@ CREATE TABLE `cart` (
   `userId` varchar(25) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `shop
 
 --
 -- Table structure for table `Cart Items`
@@ -95,7 +94,7 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`cartId`);
   
 ALTER TABLE `totalCheeses`
-  MODIFY `cheeseId` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cheeseId` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 ALTER TABLE `users`
   MODIFY `userId` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 ALTER TABLE `cart`

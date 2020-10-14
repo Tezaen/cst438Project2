@@ -1,0 +1,135 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--  <head>-->
+<!--    <link rel = "icon" href ="cheeseicon.png"  -->
+<!--        type = "image/x-icon"> -->
+<!--  <meta charset="utf-8">-->
+
+<%- include ('templates/header'); -%>
+    <title>Cheeso</title>
+    <!--<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <!--<script src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" ></script> -->
+ 
+    
+    <!--Bootstrap files-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+      
+    <!--Custom style-->
+    <!--<link rel="stylesheet" href="views/styles.css">-->
+  
+  
+    <body>
+    <h1 class="liltitle"> <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart </h1>
+    <div class="shopping-cart">
+    <br></br>
+      
+    <ul class="flex-container">
+    
+    <!--Product 1-->
+    <figure>
+      <img class="imgProduct" src="https://upload.wikimedia.org/wikipedia/commons/5/57/Mozzarella_di_bufala3.jpg" alt=""/>
+    </figure>
+    <div class="products">
+      <div>Mozzarella</div>
+      Price per unit: <div class="price">40</div>
+      Quantity: <div class="quantity">
+        <input type="number" value="1" min="1">
+      </div>
+    Total per units: <div class="updatedPrice">40</div>
+    </div>
+    <br></br>
+    
+       <!--Product 2-->
+    <figure>
+      <img class="imgProduct" src="https://pinconningcheese.com/wp-content/uploads/Mild-Cheddar-cropped.jpg" alt="" />
+    </figure>
+    <div class="products">
+      <div>Cheddar Cheese</div>
+      Price per unit: <div class="price">35</div>
+      Quantity: <div class="quantity">
+        <input type="number" value="1" min="1">
+      </div>
+    Total per units: <div class="updatedPrice">35</div>
+    </div>
+    <br></br>
+    
+    <!--Product 3-->
+    <figure>
+      <img class="imgProduct" src="https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=845390-847&recipeName=680" alt="" />
+    </figure>
+    <div class="products">
+      <div>Cheese Wheel</div>
+      Price per unit: <div class="price">889</div>
+      Quantity: <div class="quantity">
+        <input type="number" value="1" min="1">
+      </div>
+    Total per units: <div class="updatedPrice">889</div>
+    </div>
+    <br></br>
+    
+    <!--Product 4-->
+    <figure>
+      <img class="imgProduct" src="https://www.welcometothetable.coop/sites/default/files/wp-content/uploads/2011/06/Gorgonzola1_0.jpg" alt="" />
+    </figure>
+    <div class="products">
+      <div>Goronzola</div>
+      Price per unit: <div class="price">15</div>
+      Quantity: <div class="quantity">
+        <input type="number" value="1" min="1">
+      </div>
+    Total per units: <div class="updatedPrice">15</div>
+    </div>
+    <br></br>
+    
+    <!--Product 5-->
+    <figure>
+      <img class="imgProduct" src="https://www.grocery.com/store/image/cache/catalog/kraft/kraft-easy-cheese-spray-can-variety-pack-of-4-shar-2-500x500.jpg" alt="" />
+    </figure>
+    <div class="products">
+      <div>Kraft Easy Cheese Spray</div>
+      Price per unit: <div class="price">20</div>
+      Quantity: <div class="quantity">
+        <input type="number" value="1" min="1">
+      </div>
+    Total per units: <div class="updatedPrice">20</div>
+    </div>
+    <br></br>
+    
+    <!--Product 6-->
+    <figure>
+      <img class="imgProduct" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Bleu_de_Gex.jpg/1200px-Bleu_de_Gex.jpg" alt="" />
+    </figure>
+    <div class="products">
+      <div>Bleu Cheese</div>
+      Price per unit: <div class="price">15</div>
+      Quantity: <div class="quantity">
+        <input type="number" value="1" min="1">
+      </div>
+    Total per units: <div class="updatedPrice">15</div>
+    </div>
+    <br></br>
+    
+    </ul>
+
+    <!--Totals-->
+   <ul ></ul>
+    <h3 class="results">Subtotal:</h3>
+    <div class="totals" id="updatedSubtotal">4.08</div>
+ 
+    <h3 class="results">Taxes 9.25%:</h3>
+    <div class="totals" id="updatedTax">0.38</div>
+  
+    <h3 class="results">Total:</h3>
+    <div class="totals" id="updatedTotal">4.46</div>
+
+    <button class="checkout">Checkout</button><br></br>
+    
+
+    <!--Access to functions-->
+    <!--<script src="cheese_store/views/app.js"></script>-->
+    </body>
+<!--</html>-->
+<%- include ('templates/footer'); -%>

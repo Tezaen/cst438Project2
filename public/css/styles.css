@@ -1,0 +1,74 @@
+body {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/000/094/524/original/free-cheese-seamless-vector.jpg');
+}
+.imgProduct{
+    height: 190px;
+    width: 200px;
+    border-radius: 50px;
+}
+.jumbotron{
+    text-align: center;
+}
+.results{
+    text-align: left;
+}
+.products{
+    font-weight: bold;
+    font-size: 17px;
+    text-align: center;
+}
+.liltitle{
+  font-family: 'Niconne', cursive;
+  background-color: #ffffcc;
+  text-align: center;
+}
+
+.totals{
+    font-weight: bold;
+    font-size: 25px;
+    text-align: left;
+}
+h3{
+    color: black;
+    font-weight: bolder;
+}
+
+/*Button*/
+.checkout {
+  
+  padding: 8px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #fdff6c;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+
+}
+
+.checkout:hover {background-color: #ffb366}
+
+.checkout:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  
+  /* flow direction */
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-between;
+
+  padding: 15;
+  margin: 0;
+  list-style: none;
+}
