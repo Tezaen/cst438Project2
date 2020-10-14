@@ -97,14 +97,17 @@ app.get('/login', function(req, res){
 /* Add login post method */
 app.post('/login', async function(req, res){
     let isUserExist   = await checkUsername(req.body.username);
+    console.log(isUserExist[0]);
     let hashedPasswd  = isUserExist.length > 0 ? isUserExist[0].password : '';
     let passwordMatch = await checkPassword(req.body.password, hashedPasswd);
+    console.log(passwordMatch);
     if(passwordMatch){
         req.session.authenticated = true;
         req.session.user = isUserExist[0].username;
         res.redirect('/inventory');
     }
     else{
+        console.log("error:::");
         res.render('login', {error: true});
     }
 });
