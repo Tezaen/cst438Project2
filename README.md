@@ -34,7 +34,7 @@ Required Functions Completed:
 > I also did the frontend implementation for home, login, and register pages.
 
 **User Story:** Started the Shopping Cart page by Carmelo:
-> I started the Shooping Cart in HTML using hard code values to figure out how to make the calculations because in this week 
+> I started the Shopping Cart in HTML using hard code values to figure out how to make the calculations because in this week 
 > the databases was set up. After the database was created, I had some problems taking the values
 > from it, but Roober, Mytzy, and Miguel helped me to solve it.  
 
