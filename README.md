@@ -46,7 +46,7 @@ Required Functions Completed:
 
 **User Story:** Set Up Heroku Mytzy:
 > In this week, I set up heroku in order to display a running application in the walkthrough.
-> In order to connect heroku and have it running, I needed to use JawsDB so we could connected it with our mysql.
+> In order to connect heroku and have it running, I needed to use JawsDB so we could connect it with our mysql.
 > Once creating a database of Jaws, I recreated the sql so it could reconnect with our code.
 
 ### Iteration 3
@@ -59,7 +59,7 @@ Required Functions Completed:
 > the project.
 
 **User Story:** Editted Frontend and fixed small changes with heroku by Mytzy:
-> This week I worked on editted small changes in the frontend so the webpages could have a better design.
+> This week I worked on editing small changes in the frontend so the webpages could have a better design.
 > I also made small changes in the JawsDB because we were having some problems when deploying to heroku.
 
 ### Iteration 4
