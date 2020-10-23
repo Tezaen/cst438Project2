@@ -39,6 +39,7 @@ Required Functions Completed:
 **User Story:** Set up the admin pages and fixed shopping cart by Roober:
 > I set up admin originally to be able to add cheeses and things, but with the way shopping cart set up. We didn't have enough time
 > to set up back end stuff to work with the shopping cart nor change the shopping cart at the last minute. Now admin can see the user info as well as
-> info of cheeses.
+> info of cheeses. I also a search bar and search pages.
 
 ### Things we couldn't get done
+We could not get admin to add cheeses or remove cheeses from table without breaking the shopping cart or making it too complicated at the end of the project duration. 
