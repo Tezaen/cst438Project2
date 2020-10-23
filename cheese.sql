@@ -16,6 +16,53 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cart` (
+  `cartId` tinyint(2) NOT NULL AUTO_INCREMENT,
+  `userId` mediumint(9) NOT NULL,
+  PRIMARY KEY (`cartId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cart`
+--
+
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cartItems`
+--
+
+DROP TABLE IF EXISTS `cartItems`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cartItems` (
+  `cartItemId` mediumint(97) NOT NULL,
+  `cartId` mediumint(97) NOT NULL,
+  `productId` mediumint(97) NOT NULL,
+  `quantity` mediumint(97) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cartItems`
+--
+
+LOCK TABLES `cartItems` WRITE;
+/*!40000 ALTER TABLE `cartItems` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cartItems` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `totalCheeses`
 --
 
@@ -40,7 +87,7 @@ CREATE TABLE `totalCheeses` (
 
 LOCK TABLES `totalCheeses` WRITE;
 /*!40000 ALTER TABLE `totalCheeses` DISABLE KEYS */;
-INSERT INTO `totalCheeses` VALUES (1,'Mozzarella',40,'Melt','https://upload.wikimedia.org/wikipedia/commons/5/57/Mozzarella_di_bufala3.jpg','Stretch goo to put on pizza and other stuff',10),(2,'Cheddar Cheese',35,'Flavor','https://pinconningcheese.com/wp-content/uploads/Mild-Cheddar-cropped.jpg','Standard Yellow flavorful cheese you can put in your sandwich',15),(3,'Cheese Wheel',889,'Parmesan','https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=845390-847&recipeName=680','A cheese wheel is a wheel or block of cured cheese that is typically still covered in a protective rind. Most cheeses are made in the shape of wheels, with cheese shops cutting out wedges when clients request a particular cheese.',1),(4,'Goronzola',15,'Topping','https://www.welcometothetable.coop/sites/default/files/wp-content/uploads/2011/06/Gorgonzola1_0.jpg','It can be buttery or firm, crumbly and quite salty, with a \"bite\" from its blue veining.',10),(5,'Kraft Easy Cheese Spray',20,'Spray','https://www.grocery.com/store/image/cache/catalog/kraft/kraft-easy-cheese-spray-can-variety-pack-of-4-shar-2-500x500.jpg','Cheese in a spray can :D',12),(6,'Bleu Cheese',15,'Topping','https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Bleu_de_Gex.jpg/1200px-Bleu_de_Gex.jpg','Stinky',300);
+INSERT INTO `totalCheeses` VALUES (1,'Mozzarella',40,'Melt','https://upload.wikimedia.org/wikipedia/commons/5/57/Mozzarella_di_bufala3.jpg','Stretch goo to put on pizza and other stuff',10),(2,'Cheddar Cheese',35,'Flavor','https://pinconningcheese.com/wp-content/uploads/Mild-Cheddar-cropped.jpg','Standard Yellow flavorful cheese you can put in your sandwich',15),(3,'Cheese Wheel',889,'Parmesan','https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=845390-847&recipeName=680','A cheese wheel is a wheel or block of cured cheese that is typically still covered in a protective rind. Most cheeses are made in the shape of wheels, with cheese shops cutting out wedges when clients request a particular cheese.',4),(4,'Goronzola',15,'Topping','https://www.welcometothetable.coop/sites/default/files/wp-content/uploads/2011/06/Gorgonzola1_0.jpg','It can be buttery or firm, crumbly and quite salty, with a \"bite\" from its blue veining.',9),(5,'Kraft Easy Cheese Spray',20,'Spray','https://www.grocery.com/store/image/cache/catalog/kraft/kraft-easy-cheese-spray-can-variety-pack-of-4-shar-2-500x500.jpg','Cheese in a spray can :D',11),(6,'Bleu Cheese',15,'Topping','https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Bleu_de_Gex.jpg/1200px-Bleu_de_Gex.jpg','Stinky, very stinky.',300);
 /*!40000 ALTER TABLE `totalCheeses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,8 +102,12 @@ CREATE TABLE `users` (
   `userId` tinyint(2) NOT NULL AUTO_INCREMENT,
   `username` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `email` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gender` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`userId`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +116,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'roob','roob'),(2,'mytzy','mytzy'),(3,'miguel','mytzy'),(4,'gerard','mytzy'),(5,'kim','mytzy'),(6,'angel','mytzy'),(7,'yeesus','mytzy'),(8,'chuy','mytzy'),(9,'chu','mytzy'),(10,'caas','mytzy'),(11,'humphrey','mytzy'),(12,'jenjen','mytzy'),(13,'theobald','mytzy'),(14,'trinh','mytzy'),(15,'escobar','mytzy'),(16,'mizel','mytzy'),(17,'doug','mytzy'),(18,'dimma','mytzy'),(19,'dome','mytzy'),(20,'bruce','mytzy'),(21,'mytzy17','$2b$10$lWCCVb1g4cRT1oOvQwuXMuEjGYARpeAmf0PlesqB.pajCsmI9ky7S'),(22,'yeet','$2b$10$sEpr7HwgSkIvWsvsgKEKdu57kTJ0oyFxiad5YfLValel79QdCvT86');
+INSERT INTO `users` VALUES (1,'roob','roob','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(2,'mytzy','mytzy','email@gmail.com','F','123 Address Dr. Salinas CA 93906'),(3,'miguel','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(4,'gerard','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(5,'kim','mytzy','email@gmail.com','F','123 Address Dr. Salinas CA 93906'),(6,'angel','mytzy','email@gmail.com','F','123 Address Dr. Salinas CA 93906'),(7,'yeesus','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(8,'chuy','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(9,'chu','mytzy','email@gmail.com','F','123 Address Dr. Salinas CA 93906'),(10,'caas','mytzy','email@gmail.com','F','123 Address Dr. Salinas CA 93906'),(11,'humphrey','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(12,'jenjen','mytzy','email@gmail.com','F','123 Address Dr. Salinas CA 93906'),(13,'theobald','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(14,'trinh','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(15,'escobar','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(16,'mizel','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(17,'doug','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(18,'dimma','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(19,'dome','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(20,'bruce','mytzy','email@gmail.com','M','123 Address Dr. Salinas CA 93906'),(21,'emperor','$2b$10$ubF/sFD1iWKFXET8mzKK6ePOq1VPmCyGtYrtIZwPjMG0YfTnqQfsa','my@mail.com','','');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -78,4 +129,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-08  0:41:56
+-- Dump completed on 2020-10-23  4:25:14
