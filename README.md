@@ -44,7 +44,7 @@ Required Functions Completed:
 > cart and cartItem tables, but when we reached the ejs file for cart, we realized they were unnecessary.
 > During this week I also helped Mytzy and Carmelo with frontend styling, HTML/CSS.
 
-**User Story:** Set Up Heroku Mytzy:
+**User Story:** Set Up Heroku by Mytzy:
 > In this week, I set up heroku in order to display a running application in the walkthrough.
 > In order to connect heroku and have it running, I needed to use JawsDB so we could connect it with our mysql.
 > Once creating a database of Jaws, I recreated the sql so it could reconnect with our code.
