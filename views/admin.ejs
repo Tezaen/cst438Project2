@@ -1,0 +1,57 @@
+<%- include ('templates/header'); -%>
+    
+    <h1>Admin Page</h1>
+    <a class='button btn' href='/'>Log Out</a> <br>
+    <div class='container'>
+        <div class='form-group row'>
+            <%cheeseList.forEach(function(c) { %>
+            <div class='col-sm-2'>
+                <h5 class="cname"> Name: <%= c.cheeseName %> </h5>
+                <h5 class="cid"> Name: <%= c.cheeseId %> </h5>
+                <p class="ccategory"> Type: <%= c.category %></p>
+                <p class="cprice"> Cost: $<%= c.cost %></p>
+                <p class="cinvnum"> Stock: <%= c.invnum %></p>
+            </div>
+            <% }); %>
+        </div>
+        
+        <div class='form-group row'>
+            <%userList.forEach(function(u) { %>
+            <div class='col-sm-4'>
+                <h5 class="uId"> User ID: <%= u.userId %> </h5>
+                <h5 class="uUsername"> Username: <%= u.username %> </h5>
+                <h5 class="uPassword"> Password: <%= u.password %> </h5>
+                <h5 class="uEmail"> Email: <%= u.email %> </h5>
+                <h5 class="uGender"> Gender: <%= u.gender %> </h5>
+                <h5 class="uAddress"> Address: <%= u.address %> </h5>
+            </div>
+            <br>
+            <% }); %>
+        </div>
+    </div>
+    <!--
+    <form action='/adminAdd' method='POST'>
+        <input type='text' class='form-control' id='newCheeseName' name='newCheeseName' placeholder='Name'>
+        <input type='number' class='form-control' id='newCheeseCost' name='newCheeseCost' min='0'>
+        <input type='text' class='form-control' id='newCheeseCategory' name='newCheeseCategory' placeholder='Category'>
+        <input type='text' class='form-control' id='newCheeseImage' name='newCheeseImage' placeholder='Image URL'>
+        <input type='text' class='form-control' id='newCheeseDescription' name='newCheeseDescription' placeholder='Description'>
+        <input type='number' class='form-control' id='newCheeseInvnum' name='newCheeseInvnum' min='0'>
+    </form>
+    
+    <form action='/adminDelete' method='DELETE'>
+        <input type='number' min='1' class='form-control' id='cheeseId' name='cheeseId'>
+    </form>
+    
+    <form action='/adminUpdate' method='POST'>
+        <input type='text' class='form-control' id='cheeseName' name='cheeseName' placeholder='Name'>
+        <input type='number' class='form-control' id='cheeseCost' name='cheeseCost' min='0'>
+        <input type='text' class='form-control' id='cheeseCategory' name='cheeseCategory' placeholder='Category'>
+        <input type='text' class='form-control' id='cheeseImage' name='cheeseImage' placeholder='Image URL'>
+        <input type='text' class='form-control' id='cheeseDescription' name='cheeseDescription' placeholder='Description'>
+        <input type='number' class='form-control' id='cheeseInvnum' name='cheeseInvnum' min='0'>
+        <input type='number' min='1' class='form-control' id='cheeseId' name='cheeseId'>
+    </form>
+    !-->
+    
+<%- include ('templates/footer'); -%>

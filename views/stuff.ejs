@@ -1,0 +1,22 @@
+<form action='/cart' method='POST'>
+      <% let counter = 1; %>
+      <div class='form-group row'>
+        <%cheeseList.forEach(function(c) { %>
+          <div class='col-sm-4'>
+            <br>
+            <figure>
+              <img class="imgProduct" src="<%=c.image%>" alt=""/>
+            </figure>
+            <div class="products">
+                <div class = 'lilpolarTitle'><%= c.cheeseName %></div>
+                <div class="price info">Price per unit: $<%=c.cost%></div>
+                <div class="info">Total stock left: <%=c.invnum%></div>
+                <div class="quantity info">
+                Quantity: <input type="number" name="choicenum<%=counter%>" value="0" min="0" max="<%=c.invnum%>">
+                </div>
+                Total per units: <div class="updatedPrice"><%=c.cost%></div>
+            </div>
+          </div>
+          <%counter++;%>
+        <% }); %>
+      </div>

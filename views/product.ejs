@@ -1,23 +1,24 @@
 <%- include ('templates/header'); -%>
         <div class='container'>
             <div class='jumbotron'>
-                <h3> Chees O </h3>
-                <a class='btn btn-primary' href='/home'>Home</a>
+        		<h3 class = "title"> Chees O </h3> 
+        		<a class='button btn' href='/inventory'>Search Inventory</a>
             </div>
-            <div class='row'>
                 <%if(!cheese){%>
                     <h1 class='col-sm-12 nofound'>CANNOT FIND YOUR CHEESE!!!</h1>
-                <%}
-                else{%>
-                    <img class='col-sm-4 portrait' src=<%=cheese.image%> />
-                    <div class='col-sm-4 info'>
-                      <h3><%=cheese.cheeseName%> </h3>
-                      <div>Category: <%=cheese.category%></div>
-                      <div>Cost: <%=cheese.cost%></div>
-                      <div>Left in Stock: <%=cheese.invnum%></div>
-                      <div class='bio'><%=cheese.description%></div>
+                <% }else{ %>
+                    <h3 id = 'nameCheese'><%=cheese.cheeseName%> </h3>
+                    <!--<div class='row'>-->
+                    <div class = 'polaroid'>
+                        <img style = 'width:100%' src=<%=cheese.image%> >
+                          <h4 class = 'des'>Category: <%=cheese.category%></h4>
+                          <h4 class = 'des'> Cost: $<%=cheese.cost%> </h4> 
+                          <h4 class = 'des'> Left in Stock: <%=cheese.invnum%> </h4> <br>
+                          <h4 class = 'des'> <%=cheese.description%> </h4>
                     </div>
-                <%}%>
-            </div>
+                    
+                <% } %>
+                    <!--</div>-->
         </div>
+
 <%- include ('templates/footer'); -%>

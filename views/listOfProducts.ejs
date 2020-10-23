@@ -1,24 +1,45 @@
 <%- include ('templates/header'); -%>
     <div class='container'>
-        	<div class='jumbotron'>
-        		<h3 class = "title"> Chees O </h3> <img id= "cheese" src= "https://media1.giphy.com/media/amBY86NnEamRTF9zyL/giphy.gif">
-        		<a class='button btn ' href='/login'>Login</a>
-        		<a class='button btn' href='/register'>Register</a>
-        		<a class='button btn' href='/inventory'>Search for Cheese Inventory</a>
-        	</div>
-    </div>
-    
-    <div class='container'>
-        <div class='row'>
-            <%cheeseList.forEach(function(c) { %>
-                <div class='col-md-4'>
-                    <img class="cheeseImage"src=<%= c.image%>> <br>
-                    <div class='container'>
-                        <h5 class="cname"> <%= c.cheeseName %> </h5>
-                        <p class="ccategory"><%= c.category %></p>
-                    </div>
+        <div class='jumbotron'>
+        		<h3 class = "title"> Chees O </h3>
+        		<a class='button btn' href='/'>Home</a>
+        		<a class='button btn' href='/user/<%=the_user_id%>'>Profile</a>
+        		<a class='button btn' href='/logout'>Log Out</a> <br>
+        		<a class='button btn' href='/cart'>Check Out</a> <br>
+        		<br>
+        		<h5 id = 'welcome'>Welcome, <%=the_user_name%>! </h5>
+        </div>
+        
+        <form action='/search' method='GET'>
+            <div class = 'form-group row'>
+                <div class='col-sm-4'></div>
+                <div class='col-sm-4'></div>
+                <div class='col-sm-4'>
+                    <input type='text' class='form-control' id='cname' name='cname' placeholder='Search'>
                 </div>
-            <% }); %>
+            </div>
+        </form>
+        
+        <div class='form-group row'>
+                <%cheeseList.forEach(function(c) { %>
+                    <br>
+                    <div class='card col-sm-4'>
+                        <a href='/inventory/<%=c.cheeseId%>'>
+                            <img class="cheeseImage"src=<%= c.image%>>
+                            <br>
+                        </a>
+                        <br>
+                        <div class='container cheeseSelection'>
+                            <h5 class = 'lilpolarTitle'><%= c.cheeseName %> </h5>
+                            <p class = 'des' class="ccategory"> Type: <%= c.category %></p>
+                            <p class = 'des' class="cprice"> Cost: $<%= c.cost %></p>
+                            <br>
+                        </div>
+                        <br>
+                    </div>
+                    
+                <% }); %>
+                <br>
         </div>
     </div>
 <%- include ('templates/footer'); -%>

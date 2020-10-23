@@ -8,10 +8,9 @@ $(document).ready(function(){
   $('.quantity input').change( function() {
     newQuantity(this);
   });
-
+  
   //Calculations
-  function calculate()
-  {
+  function calculate(){
     var subtotal = 0;
     
     $('.products').each(function () {
@@ -33,8 +32,7 @@ $(document).ready(function(){
   }
   
   //Update the user quantity products
-  function newQuantity(userQuantity)
-  {
+  function newQuantity(userQuantity) {
     var updateProducts = $(userQuantity).parent().parent();
     var price = parseFloat(updateProducts.children('.price').text());
     var quantity = $(userQuantity).val();

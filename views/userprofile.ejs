@@ -1,0 +1,61 @@
+<%- include ('templates/header'); -%>
+  <div class='jumbotron'>
+		<h3 class="title"> Chees O </h3> <br>
+		<div class="chip">
+  		<h3 id = 'nameCheese'><%=userInfo.username%></h3>
+		</div>
+  </div>
+  
+  <div class = 'move'>
+	  <a class='button btn' href='/inventory'>Search Inventory</a>
+		<a class='button btn' href='/logout'>Log Out</a>  	
+  </div>
+  <br>
+  
+  <div class="flip-card">
+	  <div class="flip-card-inner">
+	    <div class="flip-card-front">
+	       <img src="https://png.pngtree.com/png-vector/20190729/ourlarge/pngtree-male-man-person-abstract-flat-color-icon-template-png-image_1622081.jpg" alt="cheesePic" style="width:500px;height:500px;">
+	    </div>
+	    <div class="flip-card-back">
+	    	<h3 class="liltitle2"> Email </h3> <br>
+	    	<div class="lilbox">
+		  		<h3 id = 'lilBoxTitile'><%=userInfo.email%></h3>
+				</div>
+				<br>
+				<br>
+				<h3 class="liltitle2"> Address </h3> <br>
+	    	<div class="lilbox">
+		  		<h3 id = 'lilBoxTitile'><%=userInfo.address%></h3>
+				</div>
+				<br>
+				<br>
+				<h3 class="liltitle2"> Gender </h3> <br>
+	    	<div class="lilbox">
+		  		<h3 id = 'lilBoxTitile'><%=userInfo.gender%></h3>
+				</div>
+	    </div>
+	  </div>
+	</div>
+
+  <form class="flip-card" action='/user/<%=userInfo.userId%>' method='POST'>
+  	<br>
+  	<h3 class = 'liltitle3'> Update Profile</h3>
+    <div class='col-sm-20'>
+			<input type='text' class='form-control' id='email' name='email' value=<%=userInfo.email%>>
+		</div>
+		<br>
+		<div class='col-sm-20'>
+			<input type='text' class='form-control' id='address' name='address' value=<%=userInfo.address%>>
+		</div>
+		<br>
+		<div class='col-sm-20'>
+			<select name="gender" id="gender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+		</div>
+		<br>
+		<button class='button btn'>Update Profile</button>
+  </form>
+<%- include ('templates/footer'); -%>

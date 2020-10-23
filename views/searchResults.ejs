@@ -1,0 +1,26 @@
+<%- include ('templates/header'); -%>
+    <div class='jumbotron'>
+		<h3 class="title"> Chees O </h3> <br>
+		<a class='button btn' href='/inventory'>Inventory</a>
+		<a class='button btn' href='/logout'>Log Out</a>
+    </div>
+    <div class='form-group row'>
+        <%result.forEach(function(c){%>
+            <br>
+            <div class='card col-md-4'>
+                <a href='/inventory/<%=c.cheeseId%>'>
+                    <img class="cheeseImage"src=<%= c.image%> > <br>
+                </a>
+                <div class='container cheeseSelection'>
+                    <h5 class = 'lilpolarTitle' class="cname"><%= c.cheeseName %> </h5>
+                    <p class = 'des' class="ccategory"> Type: <%= c.category %></p>
+                    <p class = 'des' class="cprice"> Cost: $<%= c.cost %></p>
+                    <br>
+                </div>
+                <br>
+            </div>
+        <% }); %>
+        <br>
+    </div>
+    
+<%- include ('templates/footer'); -%>
