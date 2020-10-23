@@ -1,6 +1,6 @@
-## Cheeso
+## Chees O
 
-Cheeso is an app that allows users to browse cheese, look at cheeses, and buy cheeses.
+Cheeso is an app that allows users to browse, look, and buy cheeses.
 
 Created by **Roober Cruz**, **Mytzy Escalante Godinez**, **Miguel Espitia**, **Carmelo Hernandez**
 
