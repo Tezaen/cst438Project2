@@ -4,6 +4,8 @@ Cheeso is an app that allows users to browse, look, and buy cheeses.
 
 Created by **Roober Cruz**, **Mytzy Escalante Godinez**, **Miguel Espitia**, **Carmelo Hernandez**
 
+Link to heroku-running app: https://cheeso.herokuapp.com/
+
 ### User Stories
 
 Required Functions Completed:
